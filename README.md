@@ -8,9 +8,8 @@ Download YouTube videos and convert them to audio files (.mp3 files)
 - YouTube playlist must be PUBLIC
 
 # How to use
-- Open CMD at folder of this project, run command as below to know how to use this tool:\
-***python main.py -h***
+- Run main.py script, enter url of your playlist
 - Audio files are saved in folder **playlist** defaultly (config in **main.py**)
 
 # Reference
-https://pytubefix.readthedocs.io/en/latest/
+https://github.com/JuanBindez/pytubefix
