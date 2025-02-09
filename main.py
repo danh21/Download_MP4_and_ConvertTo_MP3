@@ -11,4 +11,4 @@ for video in playlist.videos:
     print("Downloading " + video.title + " ...")
     audio_stream = video.streams.get_audio_only()
     audio_stream.download(output_path=playlist_path)
-print("\Downloaded all audios successfully!")
+print("Downloaded all audios successfully!")
