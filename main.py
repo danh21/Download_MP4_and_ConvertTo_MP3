@@ -1,14 +1,21 @@
-# Include
-from pytubefix import Playlist
+import yt_dlp
 
-# Config
-playlist_path = "./playlist/"
+playlist_path = "./playlist/"   # path to save the downloaded files
+url = input("Enter url of playlist: ")
 
-# Main
-url = input("Enter url here >")
-playlist = Playlist(url)
-for video in playlist.videos:
-    print("Downloading " + video.title + " ...")
-    audio_stream = video.streams.get_audio_only()
-    audio_stream.download(output_path=playlist_path)
-print("Downloaded all audios successfully!")
+ydl_opts = {
+    'format': 'bestaudio/best',
+    'outtmpl': playlist_path + '%(title)s.%(ext)s',
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': '192',
+    }],
+    'ignoreerrors': True,
+    'cookiefile': 'www.youtube.com_cookies.txt', # get cookies from your browser and save them in this file
+}
+
+with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    ydl.download([url])
+
+print("Done!")
