@@ -1,6 +1,8 @@
 import yt_dlp
 
-playlist_path = "./playlist/"   # path to save the downloaded files
+# path to save the downloaded files
+playlist_path = "./playlist/"
+
 url = input("Enter url of playlist: ")
 
 ydl_opts = {
@@ -12,7 +14,10 @@ ydl_opts = {
         'preferredquality': '192',
     }],
     'ignoreerrors': True,
-    'cookiefile': 'www.youtube.com_cookies.txt', # get cookies from your browser and save them in this file
+    # get cookies from your browser and save them in this file
+    'cookiefile': 'www.youtube.com_cookies.txt',
+    # write cache of downloaded files to this file to avoid re-downloading
+    'download_archive': 'downloaded.txt',
 }
 
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
