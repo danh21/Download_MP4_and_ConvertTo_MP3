@@ -24,18 +24,29 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build exe with PyInstaller
-        run: pyinstaller --noconfirm --onefile --windowed --name "YoutubePlaylistDownloader" app.py
+        run: pyinstaller --noconfirm --onedir --windowed --name "YoutubePlaylistDownloader" app.py
+
+      - name: Add template placeholder files
+        shell: pwsh
+        run: |
+          $appDir = "dist/YoutubePlaylistDownloader"
+          "# Netscape HTTP Cookie File`n# Replace this file with your real exported cookies (see README)" | Out-File -FilePath "$appDir/www.youtube.com_cookies.txt" -Encoding utf8
+          New-Item -Path "$appDir/downloaded.txt" -ItemType File -Force | Out-Null
+
+      - name: Zip the dist folder
+        shell: pwsh
+        run: Compress-Archive -Path dist/YoutubePlaylistDownloader -DestinationPath YoutubePlaylistDownloader-windows.zip
 
       - name: Upload build artifact (every run)
         uses: actions/upload-artifact@v4
         with:
           name: YoutubePlaylistDownloader-windows
-          path: dist/YoutubePlaylistDownloader.exe
+          path: YoutubePlaylistDownloader-windows.zip
 
       - name: Create GitHub Release (only on version tag)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/YoutubePlaylistDownloader.exe
+          files: YoutubePlaylistDownloader-windows.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

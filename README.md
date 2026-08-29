@@ -19,18 +19,19 @@
 
 ```
 .
-├── build/                              # PyInstaller build artifacts
-├── dist/                               # Packaged application workspace
-│   ├── playlist/                       # Downloaded .mp3 files
-│   ├── downloaded.txt                  # Download history (prevents re-downloads)
-│   ├── www.youtube.com_cookies.txt     # Your YouTube cookies
-│   └── YoutubePlaylistDownloader.exe   # Application executable
-├── app.py                              # Main source code
-├── build.bat                           # Build script
-├── playlist.txt                        # Playlist URL input
-├── requirements.txt                    # Python dependencies
-├── www.youtube.com_cookies.txt         # Your YouTube cookies
-├── YoutubePlaylistDownloader.spec       # PyInstaller configuration
+├── build/                                # PyInstaller build artifacts
+├── dist/                                 # Packaged application workspace
+│   └── YoutubePlaylistDownloader/        # App runtime folder
+│       ├── downloaded.txt                # Download history (prevents re-downloads)
+│       ├── www.youtube.com_cookies.txt   # Your YouTube cookies
+│       ├── YoutubePlaylistDownloader.exe # Application executable
+│       └── _internal/                    # Internal PyInstaller runtime files
+├── app.py                                # Main source code
+├── build.bat                             # Build script
+├── playlist.txt                          # Playlist URL input
+├── requirements.txt                      # Python dependencies
+├── www.youtube.com_cookies.txt           # Your YouTube cookies
+├── YoutubePlaylistDownloader.spec        # PyInstaller configuration
 ├── .gitignore
 └── README.md
 ```
