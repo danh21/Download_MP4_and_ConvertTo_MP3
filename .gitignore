@@ -1,5 +1,18 @@
-playlist/
-test*
-tempCodeRunnerFile.py
-build*/
+# Build artifacts
+build/
 dist/
+*.spec
+__pycache__/
+*.pyc
+
+# Sensitive / local data - never commit these
+www.youtube.com_cookies.txt
+*cookies*.txt
+downloaded.txt
+playlist/
+
+# OS/editor junk
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
