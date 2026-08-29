@@ -19,9 +19,18 @@
 
 ```
 .
-├── playlist/                       # output
-├── main.py                         # main app
-├── www.youtube.com_cookies.txt     # your youtube cookie
+├── build/                              # PyInstaller build artifacts
+├── dist/                               # Packaged application workspace
+│   ├── playlist/                       # Downloaded .mp3 files
+│   ├── downloaded.txt                  # Download history (prevents re-downloads)
+│   ├── www.youtube.com_cookies.txt     # Your YouTube cookies
+│   └── YoutubePlaylistDownloader.exe   # Application executable
+├── app.py                              # Main source code
+├── build.bat                           # Build script
+├── playlist.txt                        # Playlist URL input
+├── requirements.txt                    # Python dependencies
+├── www.youtube.com_cookies.txt         # Your YouTube cookies
+├── YoutubePlaylistDownloader.spec       # PyInstaller configuration
 ├── .gitignore
 └── README.md
 ```
@@ -32,21 +41,24 @@
 
 - python
 - yt_dlp
+- pyinstaller
 - FFmpeg
 - deno
 - Make sure internet connection; youTube playlist must be PUBLIC
 
 ### 🛠️ Build / Verification
 
-- Install packs
+- Install packs manually
 ```powershell
 pip install -U "yt-dlp[default]"
 irm https://deno.land/install.ps1 | iex
 ```
 - Install FFmpeg .zip, extract it, add path/to/bin to PATH of environment variables
 - Export your youtube cookie
-- Run main.py script, enter url of your playlist
-- Audio files are saved in folder **playlist** defaultly (configured in **main.py**)
+- Run build.bat (include install required packs)
+- Run dist/YoutubePlaylistDownloader.exe
+- Enter url of your playlist
+- Audio files are saved in folder **dist/playlist** defaultly
 
 ## 🔗 Reference
 

@@ -1,3 +1,5 @@
 playlist/
 test*
 tempCodeRunnerFile.py
+build*/
+dist/
