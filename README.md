@@ -28,9 +28,7 @@
 │       └── _internal/                    # Internal PyInstaller runtime files
 ├── app.py                                # Main source code
 ├── build.bat                             # Build script
-├── playlist.txt                          # Playlist URL input
 ├── requirements.txt                      # Python dependencies
-├── www.youtube.com_cookies.txt           # Your YouTube cookies
 ├── YoutubePlaylistDownloader.spec        # PyInstaller configuration
 ├── .gitignore
 └── README.md
@@ -57,11 +55,12 @@ irm https://deno.land/install.ps1 | iex
 - Install FFmpeg .zip, extract it, add path/to/bin to PATH of environment variables
 - Export your youtube cookie
 - Run build.bat (include install required packs)
-- Run dist/YoutubePlaylistDownloader.exe
+- Run YoutubePlaylistDownloader.exe
 - Enter url of your playlist
-- Audio files are saved in folder **dist/playlist** defaultly
+- Audio files are saved in folder **playlist** defaultly
 
 ## 🔗 Reference
 
 - https://www.geeksforgeeks.org/installation-guide/how-to-install-ffmpeg-on-windows/
 - https://github.com/BtbN/FFmpeg-Builds/releases
+- https://github.com/danh21/Download_MP4_and_ConvertTo_MP3/releases
